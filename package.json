@@ -1,7 +1,7 @@
 {
   "name": "projecto-ia",
-  "version": "V-0.0.1",
-  "description": "",
+  "version": "0.0.1",
+  "description": "Projecto de IA sobre asistente Virtual para la prevencion de covid",
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/index.js"
@@ -18,8 +18,14 @@
   },
   "homepage": "https://github.com/YuniorAVB/Ciclo9-IA#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mysql": "^2.18.1",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "google-translate-api": "^2.3.0",
+    "morgan": "^1.10.0"
   }
 }
