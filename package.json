@@ -18,11 +18,14 @@
   },
   "homepage": "https://github.com/YuniorAVB/Ciclo9-IA#readme",
   "dependencies": {
+    "actions-on-google": "^2.13.0",
     "cors": "^2.8.5",
+    "dialogflow-fulfillment": "^0.6.1",
     "express": "^4.17.1",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.7",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "google-translate-api": "^2.3.0",
