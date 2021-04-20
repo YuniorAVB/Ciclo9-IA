@@ -1,11 +1,11 @@
+const readAll = require("./readAll");
 const create = require("./create");
-const read = require("./read");
+const updateById = require("./updateById");
 const readById = require("./readById");
-const readByDni = require("./readByDni");
 
 module.exports = {
+  readAll,
   create,
-  read,
+  updateById,
   readById,
-  readByDni,
 };

@@ -7,6 +7,7 @@ routerWebHook.post("/webhook", (req, res) => {
 
   let intentMap = new Map();
   intentMap.set("createPostulant", require("./CreatePostulant"));
+  intentMap.set("Welcome", require("./Welcome"));
 
   agent.handleRequest(intentMap);
 });
