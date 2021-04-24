@@ -1,6 +1,5 @@
 const { create } = require("../../models/Postulant");
-const downloadPdf = require("../../utils/downloadPdf");
-const validUrl = require("valid-url");
+
 const sendMail = require("../../utils/sendMail");
 const templateMessage = require("./template");
 
@@ -12,22 +11,14 @@ module.exports = async function (agente) {
     const postulant_email = agente.parameters["email"];
     const postulant_url_cv = agente.parameters["url_cv"];
 
-    if (!validUrl.isUri(postulant_url_cv)) {
-      return agente.add("Ups... La Url no es Valida!!");
-    }
-
-    const result = await downloadPdf({ url: postulant_url_cv });
-
-    if (!result.state) {
-      return agente.add("Ups... Ocurrio un error, intentelo mas Tarde!!");
-    }
+    console.log("Entrando");
 
     const { state } = await create({
       postulant_dni,
       postulant_email,
       postulant_last_name,
       postulant_name,
-      postulant_url_cv: result.name,
+      postulant_url_cv,
     });
     if (state) {
       await sendMail({
@@ -44,6 +35,7 @@ module.exports = async function (agente) {
       );
     }
   } catch (error) {
+    console.log(error);
     return agente.add("Ups... Ocurrio un error, intentelo mas Tarde!!");
   }
 };
