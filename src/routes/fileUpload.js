@@ -1,7 +1,9 @@
 const router = require("express").Router();
 
-const { uploadCV } = require("../controllers/FileUpload");
+const { uploadCV, uploadVideo } = require("../controllers/FileUpload");
 
 router.post("/upload/cv", uploadCV);
+
+router.post("/upload/video", uploadVideo);
 
 module.exports = router;

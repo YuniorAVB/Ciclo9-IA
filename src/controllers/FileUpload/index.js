@@ -1,3 +1,5 @@
 const uploadCV = require("./uploadCV");
 
-module.exports = { uploadCV };
+const uploadVideo = require("./uploadVideo");
+
+module.exports = { uploadCV, uploadVideo };

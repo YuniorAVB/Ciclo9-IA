@@ -2,8 +2,9 @@ const { WebhookClient } = require("dialogflow-fulfillment");
 
 const routerWebHook = require("express").Router();
 
-routerWebHook.post("/webhook", (req, res) => {
-  const agent = new WebhookClient({ request: req, response: res });
+routerWebHook.post("/webhook", async (req, res) => {
+  console.log("aaaaaaaaaaaaaaaaaaaaaa");
+  const agent = await new WebhookClient({ request: req, response: res });
 
   let intentMap = new Map();
   intentMap.set("createPostulant", require("./CreatePostulant"));
@@ -11,7 +12,6 @@ routerWebHook.post("/webhook", (req, res) => {
   intentMap.set("welcomeChat", require("./WelcomeChat"));
   intentMap.set("stallTracking", require("./StallTracking"));
 
-  agent.handleRequest(intentMap);
+  await agent.handleRequest(intentMap);
 });
-
 module.exports = routerWebHook;

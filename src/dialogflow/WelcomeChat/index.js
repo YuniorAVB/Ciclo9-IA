@@ -1,4 +1,4 @@
-module.exports = function (agente) {
+module.exports = async function (agente) {
   let jsonSend = { data: [], type: "welcome" };
 
   jsonSend.data = [
@@ -7,5 +7,5 @@ module.exports = function (agente) {
     { intent: "stallTracking", label: "TRACKING", img: "tracking.png" },
   ];
 
-  return agente.add(JSON.stringify(jsonSend));
+  await agente.add(JSON.stringify(jsonSend));
 };

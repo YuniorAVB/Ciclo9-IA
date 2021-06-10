@@ -10,6 +10,7 @@ module.exports = async function (agente) {
     const postulant_last_name = agente.parameters["last_name"];
     const postulant_email = agente.parameters["email"];
     const postulant_url_cv = agente.parameters["url_cv"];
+    const postulant_url_video = agente.parameters["url_video"];
 
     console.log("Entrando");
 
@@ -19,6 +20,7 @@ module.exports = async function (agente) {
       postulant_last_name,
       postulant_name,
       postulant_url_cv,
+      postulant_url_video,
     });
     if (state) {
       await sendMail({
@@ -30,12 +32,13 @@ module.exports = async function (agente) {
         }),
       });
 
+      //KEY uploadWebcamVideo
+
       return agente.add(
         "Felicidades ya estas Registrado, le enviaremos un correo de confirmacion"
       );
     }
   } catch (error) {
-    console.log(error);
     return agente.add("Ups... Ocurrio un error, intentelo mas Tarde!!");
   }
 };

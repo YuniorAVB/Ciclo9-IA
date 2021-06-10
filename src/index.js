@@ -26,7 +26,7 @@ app.use("/api", postulant);
 app.use("/api", stall);
 app.use("/api", fileUpload);
 
-app.post("/api/test", async function (req, res) {
+app.post("/api/test", async function (req, res, next) {
   try {
     const test = require("./dialogflow/test");
     const { userQuery, userId } = req.body;
@@ -34,6 +34,7 @@ app.post("/api/test", async function (req, res) {
     res.json({ data });
   } catch (error) {
     console.log(error);
+    nexto();
   }
 });
 
